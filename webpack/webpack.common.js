@@ -1,18 +1,14 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
-//extra config vars?
 // Point to root folder
-var root = path.resolve(__dirname, '..');
+const root = path.resolve(__dirname, '..');
 
 module.exports = {
   entry: {
-    // context: path.resolve(root, 'src'),
     main: './src/main.ts',
-    vendor: './src/vendor.ts',
-    polyfills: './src/polyfills.ts'
   },
   resolve: {
     extensions: ['.ts', '.js', '.json']
@@ -20,35 +16,32 @@ module.exports = {
   module: {
     rules: [
       {
+
         test: /\.ts$/,
         use: ['awesome-typescript-loader', 'angular2-template-loader'],
         exclude: [/\.(spec|e2e)\.ts$/]
       },
       {
+        // All *.component.html files
         test: /\.html$/,
         use: ['html-loader']
       },
       {
         // All CSS files except *.component.css
-        test: /\.css$/,
+        test: /\.(css|sass|scss)$/,
         exclude: path.resolve(root, 'src/app'),
-        use: ExtractTextWebpackPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap' })
+        use: ExtractTextWebpackPlugin.extract({ fallback: 'style-loader', use: ['css-loader?sourceMap', 'sass-loader?sourceMap'] })
       },
       {
-        // All CSS *.component.css files
-        test: /\.css$/,
+        // All CSS/SASS/SCSS *.component.css files
+        test: /\.(css|sass|scss)$/,
         include: path.resolve(root, 'src/app'),
-        use: ['to-string-loader', 'css-loader']
+        use: ['to-string-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
       }
-      // {
-      //   // SASS/SCSS
-      //   test: /\.(scss|sass)$/,
-      //   use: ['style-loader', 'css-loader', 'sass-loader']
-      // }
-
     ]
   },
   plugins: [
+    
     // Workaround for angular/angular#11580
     new webpack.ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
@@ -56,9 +49,13 @@ module.exports = {
       path.resolve(root, 'src'), // location of your src
       {} // a map of your routes
     ),
+
+    // Check for all node_module imports and add them to vendor.js
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['main', 'vendor', 'polyfills']
+      name: 'vendor',
+      minChunks: ({ resource }) => /node_modules/.test(resource)
     }),
+
     new HtmlWebpackPlugin({
       template: './src/index.html'
     })
