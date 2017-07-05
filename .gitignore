@@ -1,0 +1,13 @@
+# GENERAL
+dist/
+node_modules/
+
+
+# IDE
+.vscode/
+
+# TYPINGS
+typings/
+
+# MISC
+tmp/
