@@ -27,6 +27,11 @@ module.exports = {
         use: ['html-loader']
       },
       {
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        // include: path.resolve(root, 'src/assets'),
+        use: 'file-loader?name=assets/[name].[ext]'
+      },
+      {
         // All CSS files except *.component.css
         test: /\.(css|sass|scss)$/,
         exclude: path.resolve(root, 'src/app'),
@@ -36,12 +41,19 @@ module.exports = {
         // All CSS/SASS/SCSS *.component.css files
         test: /\.(css|sass|scss)$/,
         include: path.resolve(root, 'src/app'),
-        use: ['to-string-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
+        use: ['to-string-loader', 'css-loader?sourceMap', {
+          loader: 'sass-loader',
+          options: {
+            // Includes a list of paths/folders where node-sass can look for @import files
+            includePaths: [path.resolve(root, 'src/assets').toString()],
+            sourceMap: true
+          }
+        }]
       }
     ]
   },
   plugins: [
-    
+
     // Workaround for angular/angular#11580
     new webpack.ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows

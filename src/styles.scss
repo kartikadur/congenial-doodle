@@ -1,0 +1,11 @@
+/**
+Only put something here if it is truly global
+like fonts, or global styles, grids, etc
+**/
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import './assets/variables';
+
+body {
+  background: $body-back;
+}
