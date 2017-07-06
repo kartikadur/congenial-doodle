@@ -1,27 +1,16 @@
 'use strict';
 
-const path = require('path');
-
 const webpack = require('webpack');
 const WebpackMerge = require('webpack-merge');
 const CommonConfig = require('./webpack.common');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// Point to build / destination / distribution folder
-const build = path.resolve(__dirname, '..', 'dist');
-
 // debug env vars
-const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
+const ENV = process.env.NODE_ENV = process.env.ENV = 'testing';
 
 module.exports = WebpackMerge(CommonConfig, {
-  devtool: 'cheap-module-eval-source-map',
-  output: {
-    path: build,
-    publicPath: '/',
-    filename: '[name].js',
-    chunkFilename: '[id].chunk.js'
-  },
+  devtool: 'inline-source-map',
   plugins: [
     new ExtractTextWebpackPlugin({
       filename: '[name].css',
@@ -48,10 +37,4 @@ module.exports = WebpackMerge(CommonConfig, {
     // new UglifyJSPlugin()
     // new webpack.optimize.UglifyJsPlugin()
   ],
-  devServer: {
-    historyApiFallback: true,
-    contentBase: build,
-    compress: true,
-    stats: 'minimal'
-  }
 })

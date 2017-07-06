@@ -12,13 +12,13 @@ import { AppComponent } from './app.component';
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     BsDropdownModule.forRoot(),
-    ModalModule.forRoot()
-  ]
+    ModalModule.forRoot(),
+  ],
 })
 
 export class AppModule { }
