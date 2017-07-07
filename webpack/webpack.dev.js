@@ -15,7 +15,7 @@ const build = path.resolve(__dirname, '..', 'dist');
 const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
 
 module.exports = WebpackMerge(CommonConfig, {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'inline-source-map',
   output: {
     path: build,
     publicPath: '/',
