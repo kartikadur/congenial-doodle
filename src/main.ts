@@ -8,7 +8,7 @@ import { AppModule } from './app/app.module';
 
 import './styles.scss';
 
-if (process.env.ENV === 'production') {
+if (process.env.ENV === 'production' || process.env.ENV === 'prod') {
   enableProdMode();
 }
 
