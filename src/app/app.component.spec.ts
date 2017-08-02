@@ -31,11 +31,11 @@ describe('example test', () => {
 
   it('should have title `App works!`', () => {
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('App works!');
+    expect(app.title).toEqual('Algorithms!');
   });
 
   it('should render title as h1 tag', () => {
     const el = fixture.debugElement.nativeElement;
-    expect(el.querySelector('h1').textContent).toContain('App works!');
+    expect(el.querySelector('h1').textContent).toContain('Algorithms!');
   });
 });
