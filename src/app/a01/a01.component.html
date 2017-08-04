@@ -1,0 +1,14 @@
+<article id="Hanoi">
+  <h2>{{title}}</h2>
+  <form novalidate [formGroup]="form" class="form-group" (ngSubmit)="setupHanoi(form.value)">
+    <section class="input-group">
+      <label for="disks" class="input-group-addon">Number of disks to use</label>
+      <input type="text" formControlName='disks' class="form-control" placeholder="3">
+      <span class="input-group-btn">
+        <button class="btn btn-primary">Find Solution</button>  
+      </span>
+    </section>
+  </form>
+
+  <ul id="output" class="well" #output></ul>
+</article>
