@@ -3,7 +3,7 @@ import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 // Services
-import { A01Service } from './a01.service';
+import { A01Service } from '../services';
 
 @Component({
   selector: 'app-a01',

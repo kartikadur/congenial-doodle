@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { A01Component } from './a01/a01.component';
-import { A01Service } from './a01/a01.service';
+import { A01Service } from './services';
 
 @NgModule({
   bootstrap: [AppComponent],
