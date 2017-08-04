@@ -1,4 +1,8 @@
+/* tslint:disable:no-console */
 import { Component } from '@angular/core';
+
+// Import Services Here
+import { A03Service } from './services';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +13,23 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public title = 'Algorithms!';
 
-  constructor() { }
+  constructor(private service: A03Service) {
+    this.callService();
+  }
+
+  callService() {
+    this.service.getPermutations([4, 3, 2, 1], 5)
+      .subscribe(
+      (d: any) => console.log(d),
+      (e: Error) => console.log(e),
+      () => console.log('completed'),
+    );
+
+    this.service.getPermutations('FADE', 5)
+      .subscribe(
+      (d: any) => console.log(d),
+      (e: Error) => console.log(e),
+      () => console.log('completed'),
+    );
+  }
 }

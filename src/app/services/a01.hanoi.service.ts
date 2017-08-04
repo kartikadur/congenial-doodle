@@ -1,3 +1,7 @@
+/**
+ * Based on Hanoi tower by Tomáš Bouda
+ * https://medium.com/100-days-of-algorithms/day-1-hanoi-tower-94871efb7df3
+ */
 import { Injectable } from '@angular/core';
 
 import 'rxjs/add/observable/from';
