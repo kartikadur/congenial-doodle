@@ -15,7 +15,7 @@ export class ArrayService {
 
   // Equivalent to python's zip_longest
   zipLongest(arr1: [], arr2: []): [] {
-    const maxLength = arr1.length > arr2.length ? arr1.length : arr2.length;
+    const maxLength = Math.max(arr1.length, arr2.length);
     return [
       this.padArray(arr1, maxLength),
       this.padArray(arr2, maxLength),

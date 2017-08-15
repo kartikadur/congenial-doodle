@@ -28,16 +28,16 @@ export class A10Service {
     return 0;
   }
 
-  add(x: [], y: []): [] {
-    let [z, carry] = [[], 0];
+  // add(x: [], y: []): [] {
+  //   let [z, carry] = [[], 0];
 
-    for (const key in x) {
-      if (x.hasOwnProperty(key)) {
+  //   for (const key in x) {
+  //     if (x.hasOwnProperty(key)) {
 
 
-      }
-    }
+  //     }
+  //   }
 
-    return z;
-  }
+  //   return z;
+  // }
 }

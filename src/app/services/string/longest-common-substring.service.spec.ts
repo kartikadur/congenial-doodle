@@ -1,4 +1,3 @@
-/* tslint:disable:no-console */
 import { LCSService } from './longest-common-substring.service';
 
 fdescribe('Service: Longest Common Substring', () => {
