@@ -31,7 +31,7 @@ export class A06Service {
   constructor() { }
 
   // for the time being sticking with post fix, may include prefix, infix, etc later
-  getEvaluatedExpression(expression: string, type = 'postfix'): Observable<number> {
+  evaluate(expression: string, type = 'postfix'): Observable<number> {
     if (type === 'postfix') {
       return Observable.of(this.postfix(expression));
     }

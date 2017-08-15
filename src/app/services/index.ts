@@ -1,4 +1,11 @@
-export * from './a01.hanoi.service';
-export * from './a02.mcm.service';
-export * from './a03.permutation.service';
-export * from './a04.counting1s.service';
+// export * from './a01.hanoi.service';
+// export * from './a02.mcm.service';
+// export * from './a03.permutation.service';
+// export * from './a04.counting1s.service';
+// export * from './a05.eratosthenes.service';
+// export * from './a06.notations.service';
+// export * from './a07.binary-fsa.service';
+// export * from './a08.search.service';
+// export * from './a09.montecarlo-pi.service';
+// export * from './a10.karatsuba.service';
+// export * from './a11.mccarthy.service';

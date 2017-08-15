@@ -3,13 +3,22 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-// Code imports go here
+// Component Imports
 import { AppComponent } from './app.component';
 
+import { LCSService } from './services/string/longest-common-substring.service';
+
+// Service Imports
 import {
-  A01Service,
-  A02Service,
-  A03Service,
+  // A01Service,
+  // A02Service,
+  // A03Service,
+  // A04Service,
+  // A05Service,
+  // A06Service,
+  // A07Service,
+  // A08Service,
+  // A09Service,
 } from './services';
 
 @NgModule({
@@ -22,9 +31,16 @@ import {
     ReactiveFormsModule,
   ],
   providers: [
-    A01Service,
-    A02Service,
-    A03Service,
+    // A01Service,
+    // A02Service,
+    // A03Service,
+    // A04Service,
+    // A05Service,
+    // A06Service,
+    // A07Service,
+    // A08Service,
+    // A09Service,
+    LCSService,
   ],
 })
 
